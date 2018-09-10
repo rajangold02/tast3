@@ -175,7 +175,7 @@ data "aws_ami" "stable_coreos" {
   owners = ["595879546273"]
 }
 data "template_file" "cloud_config" {
-  template = "${file("$./config.yml")}"
+  template = "${file("config.yml")}"
 
   vars {
     aws_region         = "${var.region}"
