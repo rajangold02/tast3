@@ -46,6 +46,15 @@ resource "aws_internet_gateway" "my_vpc_gw" {
   }
 }
 
+resource "aws_eip" "nat_eip" {
+  vpc = true
+}
+
+resource "aws_nat_gateway" "natgw" {
+  allocation_id = "${aws_eip.nat_eip.id}"
+  subnet_id     = "${aws_subnet.my_public_subnet.id}"
+}
+
 resource "aws_route_table" "my_public_route_table" {
   vpc_id = "${aws_vpc.my_vpc.id}"
 
@@ -215,7 +224,6 @@ data "aws_ami" "stable_coreos" {
 
   owners = ["595879546273"]
 }
-
 
 ## Creating Launch Configuration
 resource "aws_launch_configuration" "launch_config" {

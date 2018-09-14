@@ -32,12 +32,12 @@ variable "mappublicip" {
 
 variable "keypair_name" {
   description = "Key to access the server"
-  default = "smartcity"
+  default     = "smartcity"
 }
 
 variable "instance_type" {
   description = "Instance Size"
-  default = "t2.micro"
+  default     = "t2.micro"
 }
 
 variable "asg_min" {
