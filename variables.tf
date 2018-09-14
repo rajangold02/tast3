@@ -19,7 +19,7 @@ variable "dnshostnames" {
 }
 
 variable "vpccidrblock" {
-  default = "30.0.0.0/16"
+  description = "Please give VPC cidr block range"
 }
 
 variable "destinationcidrblock" {
@@ -31,10 +31,12 @@ variable "mappublicip" {
 }
 
 variable "keypair_name" {
+  description = "Key to access the server"
   default = "smartcity"
 }
 
 variable "instance_type" {
+  description = "Instance Size"
   default = "t2.micro"
 }
 
